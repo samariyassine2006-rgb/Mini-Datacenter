@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 620" width="1100" height="620" font-family="Arial, Helvetica, sans-serif">
   <rect width="1100" height="620" fill="#ffffff"/>
-  <text x="550" y="20" text-anchor="middle" font-size="15" font-weight="bold" fill="#111">Plan d'adressage – Réseau multi-sites virtualisé (v1)</text>
+  <text x="550" y="20" text-anchor="middle" font-size="15" font-weight="bold" fill="#111">Plan d'adressage – Réseau multi-sites virtualisé </text>
 
   <!-- Tunnel WireGuard -->
   <path d="M210,110 L210,46 L890,46 L890,110" fill="none" stroke="#5b3fd1" stroke-width="2" stroke-dasharray="7,5"/>
@@ -125,7 +125,7 @@
 
   <!-- Légende -->
   <rect x="30" y="575" width="14" height="14" fill="#d9f2e6" stroke="#1a7f5a"/>
-  <text x="50" y="587" font-size="11" fill="#222">Routeur (conteneur)</text>
+  <text x="50" y="587" font-size="11" fill="#222">Routeur </text>
   <rect x="170" y="575" width="14" height="14" fill="#f3efe6" stroke="#6b6b6b"/>
   <text x="190" y="587" font-size="11" fill="#222">Switch / hôte</text>
   <rect x="290" y="575" width="14" height="14" fill="#eaf1fb" stroke="#3b6db3"/>
