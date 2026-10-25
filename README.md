@@ -1,1 +1,126 @@
-reseau-entreprise-virtualise
+# Infrastructure réseau virtualisée multi-sites
+
+Projet réalisé par **Yassine SAMARI** et **Achraf TALHAOUI**
+année 2026-2027
+
+## Présentation
+
+Ce projet simule un réseau d'entreprise composé de deux sites (A et B) reliés
+par un opérateur simulé (ISP), avec un tunnel VPN WireGuard direct entre les
+deux sites. Les routeurs FRRouting s'exécutent dans des conteneurs Docker
+orchestrés par Containerlab.
+
+L'objectif est de mettre en œuvre, de façon reproductible, les briques
+classiques d'une infrastructure réseau : routage dynamique, segmentation,
+services d'infrastructure, sécurité et interconnexion chiffrée des sites.
+
+## Objectifs
+
+- Routage dynamique : OSPF à l'intérieur de chaque site, eBGP entre les sites et l'ISP
+- Segmentation en VLANs (VLAN 10 : clients, VLAN 20 : serveurs)
+- NAT en sortie vers l'ISP
+- VPN site-à-site WireGuard entre R1 et R2
+- Services : DNS (Bind9), DHCP, serveur web (Nginx)
+- Filtrage : pare-feu nftables sur les routeurs
+- Tests de fonctionnement et de résilience (pannes, convergence)
+
+## Architecture
+
+Le schéma d'architecture est disponible dans `docs/schema-architecture.png`
+et le plan d'adressage détaillé dans `docs/plan-adressage.md`.
+
+| Élément | Rôle |
+|---|---|
+| Site A (AS 65001) | Routeur R1 (FRRouting), switch VLANs `10.1.0.0/16`, PC1 (client DHCP), serveur DNS Bind9 |
+| Site B (AS 65002) | Routeur R2 (FRRouting), switch VLANs `10.2.0.0/16`, PC2 (client DHCP), serveur web Nginx |
+| ISP (AS 65000) | Routeur R-ISP, eBGP avec R1 et R2 |
+
+### Liens
+
+| Lien | Réseau | Protocole |
+|---|---|---|
+| R1 ↔ R-ISP | `10.0.1.0/30` | eBGP |
+| R-ISP ↔ R2 | `10.0.2.0/30` | eBGP |
+| R1 ↔ R2 (tunnel WireGuard) | `10.99.0.0/30` | Route statique ou OSPF sur `wg0` |
+
+### Principe de fonctionnement
+
+- Les routeurs R1 et R2 n'annoncent à l'ISP que les adresses nécessaires à
+  l'établissement du tunnel. Les LAN des sites ne sont pas annoncés en BGP.
+- Le trafic entre les LAN des deux sites circule dans le tunnel WireGuard
+  et ne transite donc pas en clair par l'ISP.
+- Le NAT sur R1 et R2 donne aux clients un accès vers l'extérieur (l'ISP).
+
+## Technologies
+
+- Containerlab, Docker
+- FRRouting (OSPF, BGP)
+- Bind9, serveur DHCP [isc-dhcp-server ou dnsmasq], Nginx
+- nftables
+- WireGuard
+
+## Structure du dépôt
+
+```
+reseau-virtualise/
+├── topologie/    # fichiers .clab.yml
+├── configs/      # configurations FRR, nftables, Bind9, DHCP, WireGuard
+├── scripts/      # déploiement et tests automatisés
+├── docs/         # schéma, plan d'adressage, rapport
+└── README.md
+```
+
+## Prérequis
+
+- Linux (natif, VM ou WSL2)
+- Docker
+- Containerlab
+- Outils de diagnostic : tcpdump, traceroute [wireshark]
+
+## Déploiement
+
+```bash
+# Cloner le dépôt
+git clone [URL_DU_DEPOT]
+cd reseau-virtualise
+
+# Déployer la topologie
+sudo containerlab deploy -t topologie/[nom].clab.yml
+
+# Détruire la topologie
+sudo containerlab destroy -t topologie/[nom].clab.yml
+```
+
+## Tests
+
+```bash
+./scripts/tests.sh
+```
+
+Scénarios prévus :
+
+- Connectivité PC1 ↔ PC2 à travers le tunnel (traceroute : le trafic ne doit pas passer par R-ISP)
+- Attribution DHCP et résolution DNS (Bind9, site A)
+- Accès au serveur web Nginx (site B) depuis le site A
+- Règles de pare-feu nftables (flux autorisés et bloqués)
+- Coupure du lien R1 ↔ R-ISP ou du tunnel, et mesure du temps de convergence
+
+Les résultats détaillés sont consignés dans `docs/rapport.pdf`.
+
+## Avancement
+
+- [x] Schéma d'architecture (v1)
+- [ ] Plan d'adressage
+- [ ] Topologie Containerlab de base
+- [ ] OSPF dans chaque site
+- [ ] eBGP avec l'ISP
+- [ ] VLANs, DHCP, DNS, serveur web
+- [ ] NAT et pare-feu nftables
+- [ ] Tunnel WireGuard
+- [ ] Tests et rapport
+
+## Livrables
+
+- Schéma d'architecture
+- Scripts de déploiement
+- Rapport de tests
