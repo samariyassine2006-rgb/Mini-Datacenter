@@ -1,0 +1,138 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 620" width="1100" height="620" font-family="Arial, Helvetica, sans-serif">
+  <rect width="1100" height="620" fill="#ffffff"/>
+  <text x="550" y="20" text-anchor="middle" font-size="15" font-weight="bold" fill="#111">Plan d'adressage – Réseau multi-sites virtualisé (v1)</text>
+
+  <!-- Tunnel WireGuard -->
+  <path d="M210,110 L210,46 L890,46 L890,110" fill="none" stroke="#5b3fd1" stroke-width="2" stroke-dasharray="7,5"/>
+  <text x="550" y="38" text-anchor="middle" font-size="12" fill="#5b3fd1">Tunnel WireGuard 10.99.0.0/30</text>
+  <text x="216" y="100" font-size="10" fill="#5b3fd1">wg0 10.99.0.1</text>
+  <text x="884" y="100" text-anchor="end" font-size="10" fill="#5b3fd1">wg0 10.99.0.2</text>
+
+  <!-- Boîtes de sites -->
+  <rect x="20" y="60" width="380" height="485" rx="10" fill="none" stroke="#999" stroke-dasharray="6,5"/>
+  <rect x="700" y="60" width="380" height="485" rx="10" fill="none" stroke="#999" stroke-dasharray="6,5"/>
+  <text x="35" y="82" font-size="13" font-weight="bold" fill="#111">Site A – 10.1.0.0/16</text>
+  <text x="1065" y="82" text-anchor="end" font-size="13" font-weight="bold" fill="#111">Site B – 10.2.0.0/16</text>
+
+  <!-- Routeurs -->
+  <rect x="50" y="110" width="320" height="80" rx="6" fill="#d9f2e6" stroke="#1a7f5a" stroke-width="1.5"/>
+  <text x="210" y="133" text-anchor="middle" font-size="13" font-weight="bold" fill="#0b4d34">R1 FRRouting</text>
+  <text x="210" y="151" text-anchor="middle" font-size="11" fill="#0b4d34">AS 65001 · OSPF · lo 10.255.0.1/32</text>
+  <text x="210" y="169" text-anchor="middle" font-size="11" fill="#0b4d34">eth2.10 / eth2.20 : passerelles .1</text>
+
+  <rect x="480" y="110" width="140" height="80" rx="6" fill="#d9f2e6" stroke="#1a7f5a" stroke-width="1.5"/>
+  <text x="550" y="133" text-anchor="middle" font-size="13" font-weight="bold" fill="#0b4d34">R-ISP</text>
+  <text x="550" y="151" text-anchor="middle" font-size="11" fill="#0b4d34">AS 65000</text>
+  <text x="550" y="169" text-anchor="middle" font-size="11" fill="#0b4d34">lo 10.255.0.3/32</text>
+
+  <rect x="730" y="110" width="320" height="80" rx="6" fill="#d9f2e6" stroke="#1a7f5a" stroke-width="1.5"/>
+  <text x="890" y="133" text-anchor="middle" font-size="13" font-weight="bold" fill="#0b4d34">R2 FRRouting</text>
+  <text x="890" y="151" text-anchor="middle" font-size="11" fill="#0b4d34">AS 65002 · OSPF · lo 10.255.0.2/32</text>
+  <text x="890" y="169" text-anchor="middle" font-size="11" fill="#0b4d34">eth2.10 / eth2.20 : passerelles .1</text>
+
+  <!-- Liens vers l'ISP -->
+  <line x1="370" y1="150" x2="480" y2="150" stroke="#444" stroke-width="1.5"/>
+  <text x="425" y="142" text-anchor="middle" font-size="11" font-weight="bold" fill="#111">10.0.1.0/30</text>
+  <text x="376" y="164" font-size="10" fill="#333">eth1 .1</text>
+  <text x="474" y="164" text-anchor="end" font-size="10" fill="#333">eth1 .2</text>
+  <text x="425" y="180" text-anchor="middle" font-size="10" fill="#666">eBGP</text>
+
+  <line x1="620" y1="150" x2="730" y2="150" stroke="#444" stroke-width="1.5"/>
+  <text x="675" y="142" text-anchor="middle" font-size="11" font-weight="bold" fill="#111">10.0.2.0/30</text>
+  <text x="626" y="164" font-size="10" fill="#333">eth2 .1</text>
+  <text x="724" y="164" text-anchor="end" font-size="10" fill="#333">eth1 .2</text>
+  <text x="675" y="180" text-anchor="middle" font-size="10" fill="#666">eBGP</text>
+
+  <!-- Liens routeur - switch -->
+  <line x1="210" y1="190" x2="210" y2="250" stroke="#444" stroke-width="1.5"/>
+  <text x="218" y="225" font-size="10" fill="#333">eth2 (trunk 802.1Q)</text>
+  <line x1="890" y1="190" x2="890" y2="250" stroke="#444" stroke-width="1.5"/>
+  <text x="898" y="225" font-size="10" fill="#333">eth2 (trunk 802.1Q)</text>
+
+  <!-- Switchs -->
+  <rect x="50" y="250" width="320" height="60" rx="6" fill="#f3efe6" stroke="#6b6b6b" stroke-width="1.5"/>
+  <text x="210" y="275" text-anchor="middle" font-size="13" font-weight="bold" fill="#222">Switch VLANs</text>
+  <text x="210" y="293" text-anchor="middle" font-size="11" fill="#444">VLAN 10 · VLAN 20</text>
+  <rect x="730" y="250" width="320" height="60" rx="6" fill="#f3efe6" stroke="#6b6b6b" stroke-width="1.5"/>
+  <text x="890" y="275" text-anchor="middle" font-size="13" font-weight="bold" fill="#222">Switch VLANs</text>
+  <text x="890" y="293" text-anchor="middle" font-size="11" fill="#444">VLAN 10 · VLAN 20</text>
+
+  <!-- Liens switch - VLANs -->
+  <line x1="120" y1="310" x2="120" y2="350" stroke="#444" stroke-width="1.5"/>
+  <line x1="300" y1="310" x2="300" y2="350" stroke="#444" stroke-width="1.5"/>
+  <line x1="800" y1="310" x2="800" y2="350" stroke="#444" stroke-width="1.5"/>
+  <line x1="980" y1="310" x2="980" y2="350" stroke="#444" stroke-width="1.5"/>
+
+  <!-- VLANs site A -->
+  <rect x="40" y="350" width="160" height="95" rx="6" fill="#eaf1fb" stroke="#3b6db3" stroke-width="1.5"/>
+  <text x="120" y="371" text-anchor="middle" font-size="12" font-weight="bold" fill="#1d3f73">VLAN 10 – Clients</text>
+  <text x="120" y="391" text-anchor="middle" font-size="12" fill="#1d3f73">10.1.10.0/24</text>
+  <text x="120" y="408" text-anchor="middle" font-size="10" fill="#1d3f73">GW 10.1.10.1</text>
+  <text x="120" y="424" text-anchor="middle" font-size="10" fill="#1d3f73">DHCP .100 à .199</text>
+
+  <rect x="220" y="350" width="160" height="95" rx="6" fill="#eaf1fb" stroke="#3b6db3" stroke-width="1.5"/>
+  <text x="300" y="371" text-anchor="middle" font-size="12" font-weight="bold" fill="#1d3f73">VLAN 20 – Serveurs</text>
+  <text x="300" y="391" text-anchor="middle" font-size="12" fill="#1d3f73">10.1.20.0/24</text>
+  <text x="300" y="408" text-anchor="middle" font-size="10" fill="#1d3f73">GW 10.1.20.1</text>
+  <text x="300" y="424" text-anchor="middle" font-size="10" fill="#1d3f73">IP fixes .10 à .50</text>
+
+  <!-- VLANs site B -->
+  <rect x="720" y="350" width="160" height="95" rx="6" fill="#eaf1fb" stroke="#3b6db3" stroke-width="1.5"/>
+  <text x="800" y="371" text-anchor="middle" font-size="12" font-weight="bold" fill="#1d3f73">VLAN 10 – Clients</text>
+  <text x="800" y="391" text-anchor="middle" font-size="12" fill="#1d3f73">10.2.10.0/24</text>
+  <text x="800" y="408" text-anchor="middle" font-size="10" fill="#1d3f73">GW 10.2.10.1</text>
+  <text x="800" y="424" text-anchor="middle" font-size="10" fill="#1d3f73">DHCP .100 à .199</text>
+
+  <rect x="900" y="350" width="160" height="95" rx="6" fill="#eaf1fb" stroke="#3b6db3" stroke-width="1.5"/>
+  <text x="980" y="371" text-anchor="middle" font-size="12" font-weight="bold" fill="#1d3f73">VLAN 20 – Serveurs</text>
+  <text x="980" y="391" text-anchor="middle" font-size="12" fill="#1d3f73">10.2.20.0/24</text>
+  <text x="980" y="408" text-anchor="middle" font-size="10" fill="#1d3f73">GW 10.2.20.1</text>
+  <text x="980" y="424" text-anchor="middle" font-size="10" fill="#1d3f73">IP fixes .10 à .50</text>
+
+  <!-- Hôtes -->
+  <line x1="120" y1="445" x2="120" y2="475" stroke="#444" stroke-width="1.5"/>
+  <line x1="300" y1="445" x2="300" y2="475" stroke="#444" stroke-width="1.5"/>
+  <line x1="800" y1="445" x2="800" y2="475" stroke="#444" stroke-width="1.5"/>
+  <line x1="980" y1="445" x2="980" y2="475" stroke="#444" stroke-width="1.5"/>
+
+  <rect x="50" y="475" width="140" height="50" rx="6" fill="#f3efe6" stroke="#6b6b6b" stroke-width="1.5"/>
+  <text x="120" y="497" text-anchor="middle" font-size="12" font-weight="bold" fill="#222">PC1</text>
+  <text x="120" y="514" text-anchor="middle" font-size="10" fill="#444">client DHCP</text>
+
+  <rect x="230" y="475" width="140" height="50" rx="6" fill="#f3efe6" stroke="#6b6b6b" stroke-width="1.5"/>
+  <text x="300" y="497" text-anchor="middle" font-size="12" font-weight="bold" fill="#222">DNS Bind9</text>
+  <text x="300" y="514" text-anchor="middle" font-size="10" fill="#444">10.1.20.10</text>
+
+  <rect x="730" y="475" width="140" height="50" rx="6" fill="#f3efe6" stroke="#6b6b6b" stroke-width="1.5"/>
+  <text x="800" y="497" text-anchor="middle" font-size="12" font-weight="bold" fill="#222">PC2</text>
+  <text x="800" y="514" text-anchor="middle" font-size="10" fill="#444">client DHCP</text>
+
+  <rect x="910" y="475" width="140" height="50" rx="6" fill="#f3efe6" stroke="#6b6b6b" stroke-width="1.5"/>
+  <text x="980" y="497" text-anchor="middle" font-size="12" font-weight="bold" fill="#222">Web Nginx</text>
+  <text x="980" y="514" text-anchor="middle" font-size="10" fill="#444">10.2.20.10</text>
+
+  <!-- Panneau central : plages -->
+  <rect x="420" y="250" width="260" height="195" rx="8" fill="#fafafa" stroke="#bbb"/>
+  <text x="550" y="272" text-anchor="middle" font-size="12" font-weight="bold" fill="#111">Plages réservées</text>
+  <text x="435" y="296" font-size="11" fill="#222">Site A : 10.1.0.0/16</text>
+  <text x="435" y="316" font-size="11" fill="#222">Site B : 10.2.0.0/16</text>
+  <text x="435" y="336" font-size="11" fill="#222">Liens ISP : 10.0.1.0/30, 10.0.2.0/30</text>
+  <text x="435" y="356" font-size="11" fill="#222">Tunnel WireGuard : 10.99.0.0/30</text>
+  <text x="435" y="376" font-size="11" fill="#222">Loopbacks : 10.255.0.0/24 (/32)</text>
+  <text x="435" y="402" font-size="10" fill="#555">BGP n'annonce que les liens /30.</text>
+  <text x="435" y="418" font-size="10" fill="#555">Les LAN passent par le tunnel.</text>
+  <text x="435" y="434" font-size="10" fill="#555">NAT uniquement en sortie eth1.</text>
+
+  <!-- Légende -->
+  <rect x="30" y="575" width="14" height="14" fill="#d9f2e6" stroke="#1a7f5a"/>
+  <text x="50" y="587" font-size="11" fill="#222">Routeur (conteneur)</text>
+  <rect x="170" y="575" width="14" height="14" fill="#f3efe6" stroke="#6b6b6b"/>
+  <text x="190" y="587" font-size="11" fill="#222">Switch / hôte</text>
+  <rect x="290" y="575" width="14" height="14" fill="#eaf1fb" stroke="#3b6db3"/>
+  <text x="310" y="587" font-size="11" fill="#222">VLAN</text>
+  <line x1="375" y1="582" x2="405" y2="582" stroke="#5b3fd1" stroke-width="2" stroke-dasharray="5,3"/>
+  <text x="412" y="587" font-size="11" fill="#222">VPN WireGuard</text>
+  <line x1="520" y1="582" x2="550" y2="582" stroke="#444" stroke-width="1.5"/>
+  <text x="557" y="587" font-size="11" fill="#222">Lien routé</text>
+  <text x="1070" y="587" text-anchor="end" font-size="10" fill="#666">Convention : passerelle .1 · serveurs .10 à .50 · pool DHCP .100 à .199</text>
+</svg>
