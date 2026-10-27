@@ -2,3 +2,4 @@ clab-*/
 .clab*
 *.swp
 .DS_Store
+*:Zone.Identifier
