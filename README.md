@@ -96,6 +96,7 @@ sudo containerlab destroy -t labs/01-ospf/topologie.clab.yml
 
 ```bash
 ./scripts/test-ospf.sh   # labo 01 ; un script par labo
+./scripts/test-bgp.sh   # labo 02 : eBGP
 ```
 
 Scénarios prévus :
@@ -114,7 +115,7 @@ Les résultats détaillés sont consignés dans `docs/rapport.pdf`.
 - [x] Plan d'adressage
 - [x] Topologie Containerlab de base (labo 01 : 2 routeurs, 2 PC)
 - [~] OSPF (labo 01 fonctionnel ; reste à l'intégrer à la topologie finale)
-- [ ] eBGP avec l'ISP
+- [x] eBGP avec l'ISP
 - [ ] VLANs, DHCP, DNS, serveur web
 - [ ] NAT et pare-feu nftables
 - [ ] Tunnel WireGuard
