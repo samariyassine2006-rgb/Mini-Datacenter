@@ -22,3 +22,14 @@
 - Pas de VLANs dans ce labo (PC directement sur eth2).
 - Image `frrouting/frr:latest` : à figer sur la version réellement testée
   (relever avec `docker exec clab-ospf-lab-r1 vtysh -c "show version"`).
+
+## Labo 02 : eBGP avec un ISP simulé
+- 3 routeurs FRR : R1 (AS 65001), R-ISP (AS 65000), R2 (AS 65002).
+- Chaque site n'annonce que son lien /30 (prefix-list + route-map en sortie) :
+  les LAN ne sont jamais annoncés à l'ISP.
+- FRR exige une route-map en entrée et en sortie pour échanger des routes en eBGP.
+- Premier script de test erroné : le grep sur "Established" comptait aussi un
+  champ JSON (bgpTimerUpEstablishedEpoch). Corrigé en cherchant "state":"Established".
+- Résultat : R1 apprend 10.0.2.0/30 via 10.0.1.2 (chemin 65000 65002), R2 apprend
+  10.0.1.0/30 via 10.0.2.1. Pings R1 <-> R2 : 0 % de perte, TTL 63.
+- R-ISP renvoie à R1 son propre préfixe, que R1 écarte (anti-boucle d'AS-PATH).
