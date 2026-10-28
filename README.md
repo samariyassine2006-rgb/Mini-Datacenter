@@ -26,8 +26,9 @@ services d'infrastructure, sécurité et interconnexion chiffrée des sites.
 
 ## Architecture
 
-Le schéma d'architecture est disponible dans `docs/schema-architecture.png`
-et le plan d'adressage détaillé dans `docs/plan-adressage.md`.
+Le schéma d'architecture est disponible dans `docs/schema-architecture.svg`
+le plan d'adressage dans `docs/plan-adressage.md` (schéma : `docs/schema-adressage.svg`)
+et le journal de bord dans `docs/journal.md`.
 
 | Élément | Rôle |
 |---|---|
@@ -63,8 +64,8 @@ et le plan d'adressage détaillé dans `docs/plan-adressage.md`.
 
 ```
 reseau-virtualise/
-├── topologie/    # fichiers .clab.yml
-├── configs/      # configurations FRR, nftables, Bind9, DHCP, WireGuard
+├── labs/         # labos progressifs (01-ospf, ...) : topologie .clab.yml + configs
+├── configs/      # configurations de la topologie finale (r1, r2, isp)
 ├── scripts/      # déploiement et tests automatisés
 ├── docs/         # schéma, plan d'adressage, rapport
 └── README.md
@@ -85,16 +86,16 @@ git clone [URL_DU_DEPOT]
 cd reseau-virtualise
 
 # Déployer la topologie
-sudo containerlab deploy -t topologie/[nom].clab.yml
+sudo containerlab deploy -t labs/01-ospf/topologie.clab.yml
 
 # Détruire la topologie
-sudo containerlab destroy -t topologie/[nom].clab.yml
+sudo containerlab destroy -t labs/01-ospf/topologie.clab.yml
 ```
 
 ## Tests
 
 ```bash
-./scripts/tests.sh
+./scripts/test-ospf.sh   # labo 01 ; un script par labo
 ```
 
 Scénarios prévus :
@@ -110,9 +111,9 @@ Les résultats détaillés sont consignés dans `docs/rapport.pdf`.
 ## Avancement
 
 - [x] Schéma d'architecture (v1)
-- [ ] Plan d'adressage
-- [ ] Topologie Containerlab de base
-- [ ] OSPF dans chaque site
+- [x] Plan d'adressage
+- [x] Topologie Containerlab de base (labo 01 : 2 routeurs, 2 PC)
+- [~] OSPF (labo 01 fonctionnel ; reste à l'intégrer à la topologie finale)
 - [ ] eBGP avec l'ISP
 - [ ] VLANs, DHCP, DNS, serveur web
 - [ ] NAT et pare-feu nftables

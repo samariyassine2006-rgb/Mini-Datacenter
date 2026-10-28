@@ -18,4 +18,4 @@ docker exec $P-r1 vtysh -c "show ip ospf neighbor" 2>/dev/null
 echo "== Routes OSPF de r1 =="
 docker exec $P-r1 vtysh -c "show ip route ospf" 2>/dev/null
 echo "== Ping PC1 -> PC2 =="
-docker exec $P-pc1 ping -c 3 10.2.10.10 && echo "OK" || echo "ECHEC"
+docker exec $P-pc1 ping -c 3 10.2.10.100 && echo "OK" || echo "ECHEC"
