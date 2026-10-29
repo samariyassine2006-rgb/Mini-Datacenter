@@ -126,3 +126,11 @@ Les résultats détaillés sont consignés dans `docs/rapport.pdf`.
 - Schéma d'architecture
 - Scripts de déploiement
 - Rapport de tests
+## Labo 03 : topologie finale (eBGP + WireGuard)
+
+    ./scripts/deploy-final.sh
+    ./scripts/test-final.sh
+    cd labs/03-final && sudo containerlab destroy -t topologie.clab.yml
+
+Le test vérifie les sessions BGP, le tunnel WireGuard (handshake), l'accès
+du PC1 au serveur Nginx du site B et que le trafic emprunte bien le tunnel.
