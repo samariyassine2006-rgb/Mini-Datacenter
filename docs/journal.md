@@ -33,3 +33,11 @@
 - Résultat : R1 apprend 10.0.2.0/30 via 10.0.1.2 (chemin 65000 65002), R2 apprend
   10.0.1.0/30 via 10.0.2.1. Pings R1 <-> R2 : 0 % de perte, TTL 63.
 - R-ISP renvoie à R1 son propre préfixe, que R1 écarte (anti-boucle d'AS-PATH).
+
+## Labo 03 : topologie finale avec tunnel WireGuard
+- Image de routeur personnalisée (FRR + wireguard-tools + nftables).
+- Tunnel WireGuard R1 (10.99.0.1) <-> R2 (10.99.0.2), endpoints 10.0.1.1 et
+  10.0.2.2, joignables grâce à eBGP à travers l'ISP.
+- Clés générées au déploiement (rien de secret dans le dépôt).
+- allowed-ips : les routes du site distant (10.x.0.0/16) passent par wg0.
+- Preuve : traceroute PC1 -> web via 10.99.0.2, sans passer par l'ISP.
