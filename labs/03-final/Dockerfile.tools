@@ -1,0 +1,3 @@
+# Image des clients (PC) et du serveur DNS : dnsmasq + outils de test
+FROM alpine:latest
+RUN apk add --no-cache dnsmasq bind-tools curl iproute2 tcpdump
