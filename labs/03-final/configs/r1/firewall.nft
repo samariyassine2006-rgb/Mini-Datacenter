@@ -1,0 +1,44 @@
+#!/usr/sbin/nft -f
+# Pare-feu et NAT de R1 (site A). Politique par défaut : refus.
+flush ruleset
+
+table inet filter {
+  chain input {
+    type filter hook input priority 0; policy drop;
+    ct state established,related accept
+    ct state invalid drop
+    iifname "lo" accept
+    # eBGP avec l'ISP
+    iifname "eth1" ip saddr 10.0.1.2 tcp dport 179 accept
+    # WireGuard depuis l'autre extrémité du tunnel (R2)
+    iifname "eth1" ip saddr 10.0.2.2 udp dport 51820 accept
+    # Ping : depuis R2 (sous-couche), à travers le tunnel, et depuis les LAN locaux
+    iifname "eth1" ip saddr 10.0.2.2 icmp type echo-request accept
+    iifname "wg0" icmp type echo-request accept
+    iifname { "eth2", "eth3" } icmp type echo-request accept
+    # DHCP pour les clients
+    iifname "eth2" udp dport 67 accept
+    counter drop
+  }
+  chain forward {
+    type filter hook forward priority 0; policy drop;
+    ct state established,related accept
+    ct state invalid drop
+    # Clients du site : sortie autorisée vers serveurs, tunnel et ISP
+    iifname "eth2" accept
+    # Site distant -> serveurs du site A : DNS uniquement (+ ping)
+    iifname "wg0" oifname "eth3" udp dport 53 accept
+    iifname "wg0" oifname "eth3" tcp dport 53 accept
+    iifname "wg0" icmp type echo-request accept
+    counter drop
+  }
+}
+
+table ip nat {
+  chain postrouting {
+    type nat hook postrouting priority 100; policy accept;
+    # Pas de traduction pour le trafic entre les deux sites
+    ip daddr { 10.1.0.0/16, 10.2.0.0/16 } return
+    oifname "eth1" counter masquerade
+  }
+}
