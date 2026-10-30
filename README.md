@@ -134,3 +134,12 @@ Les résultats détaillés sont consignés dans `docs/rapport.pdf`.
 
 Le test vérifie les sessions BGP, le tunnel WireGuard (handshake), l'accès
 du PC1 au serveur Nginx du site B et que le trafic emprunte bien le tunnel.
+
+## Labo 03 (suite) : services, NAT et pare-feu
+
+    ./scripts/deploy-final.sh
+    ./scripts/test-final.sh
+    ./scripts/test-services.sh
+
+DHCP et DNS (dnsmasq), NAT en sortie sans traduction entre sites, pare-feu
+nftables à politique de refus par défaut sur R1 et R2.
