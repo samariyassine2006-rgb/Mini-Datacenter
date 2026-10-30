@@ -41,3 +41,28 @@
 - Clés générées au déploiement (rien de secret dans le dépôt).
 - allowed-ips : les routes du site distant (10.x.0.0/16) passent par wg0.
 - Preuve : traceroute PC1 -> web via 10.99.0.2, sans passer par l'ISP.
+
+## Services, NAT et pare-feu (labo 03, jour 2)
+- DHCP : dnsmasq sur R1 et R2 (port=0, DHCP seul), pool .100-.199, option DNS
+  10.1.20.10 : les clients des deux sites utilisent le même serveur DNS.
+- DNS : dnsmasq sur le conteneur dns, zone projet.local (host-record).
+- NAT : masquerade sur eth1 uniquement ; les destinations 10.1.0.0/16 et
+  10.2.0.0/16 sont exclues, donc le web voit l'IP réelle des clients de l'autre site.
+- Pare-feu nftables : politique drop en input et forward ; autorisés
+  explicitement : eBGP depuis l'ISP, WireGuard depuis le pair, DHCP, ping,
+  DNS vers le site A, HTTP(S) vers le site B. Les serveurs ne peuvent pas
+  initier de connexion (règle absente = refus).
+- Preuve du pare-feu : un accès au port 179 de R2 via le tunnel est bloqué et
+  le compteur du dernier "drop" augmente (comparaison avant/après).
+
+### Problèmes rencontrés
+- Avec DHCP, les clients gardaient la route par défaut du réseau de gestion
+  Containerlab (eth0) et sortaient par la box, pas par R1. Correction :
+  `ip route del default` avant `udhcpc`.
+- udhcpc applique l'adresse et la route mais pas le DNS : Docker gère
+  /etc/resolv.conf. Correction : un script udhcpc qui écrit les DNS reçus.
+- Course au démarrage : WireGuard abandonne après 90 s de tentatives si la
+  sous-couche BGP n'est pas prête. Le déploiement attend maintenant que R1 et R2
+  se joignent à travers l'ISP, configure le tunnel, puis attend le handshake.
+- Le test du compteur du pare-feu était trop faible (du bruit réseau le
+  faisait passer) : il compare désormais le compteur avant et après l'accès bloqué.
