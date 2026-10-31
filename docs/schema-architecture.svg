@@ -1,78 +1,109 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1360" height="860" viewBox="0 0 680 430" font-family="Arial, Helvetica, sans-serif" xmlns:c2pa="http://c2pa.org/manifest"><metadata><c2pa:manifest>AAAWgmp1bWIAAAAeanVtZGMycGEAEQAQgAAAqgA4m3EDYzJwYQAAABZcanVtYgAAAEdqdW1kYzJtYQARABCAAACqADibcQN1cm46YzJwYTplNzQ0ODY2MS1kNTBiLTRhMGEtOGE3NC1lZDQzNzEwOGRjNDIAAAADl2p1bWIAAAApanVtZGMyYXMAEQAQgAAAqgA4m3EDYzJwYS5hc3NlcnRpb25zAAAAALxqdW1iAAAARGp1bWRjYm9yABEAEIAAAKoAOJtxE2MycGEuaW5ncmVkaWVudC52MwAAAAAYYzJzaP9VyB2+Pwu0vtIBJBSg0ZYAAABwY2JvcqNpZGM6Zm9ybWF0bWltYWdlL3N2Zyt4bWxqaW5zdGFuY2VJRHgseG1wOmlpZDphYzJlNzk3My1kZmI2LTQxNmUtYmExZS0wZmMwY2NiNDkwNTJscmVsYXRpb25zaGlwaHBhcmVudE9mAAAB4mp1bWIAAABBanVtZGNib3IAEQAQgAAAqgA4m3ETYzJwYS5hY3Rpb25zLnYyAAAAABhjMnNoTnpZth4t+3wEKTWhxJVMGQAAAZljYm9yomdhY3Rpb25zgqJmYWN0aW9ua2MycGEub3BlbmVkanBhcmFtZXRlcnOha2luZ3JlZGllbnRzgaJjdXJseC1zZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmluZ3JlZGllbnQudjNkaGFzaFggyZohWSJK3DlpU+RAF9h0ZfWJQbgUEeeZDsCvFD1q/9WkZmFjdGlvbngdY29tLmFudGhyb3BpYy5jbGF1ZGUucHJvdmlkZWRqcGFyYW1ldGVyc6F4H2NvbS5hbnRocm9waWMub3JpZ2luLWNvbmZpZGVuY2VndW5rbm93bmtkZXNjcmlwdGlvbnhmQ2xhdWRlIHByb3ZpZGVkIHRoaXMgZmlsZSBhdCB0aGUgcmVxdWVzdCBvZiBhIHVzZXIgYW5kIG1heSBoYXZlIGNyZWF0ZWQgb3IgbW9kaWZpZWQgdGhlIGZpbGUgY29udGVudHMubXNvZnR3YXJlQWdlbnShZG5hbWVmQ2xhdWRlcmFsbEFjdGlvbnNJbmNsdWRlZPUAAADIanVtYgAAAEBqdW1kY2JvcgARABCAAACqADibcRNjMnBhLmhhc2guZGF0YQAAAAAYYzJzaPsLvhPeANUhffE8sHdl+1gAAACAY2JvcqVjYWxnZnNoYTI1NmNwYWRNAAAAAAAAAAAAAAAAAGRoYXNoWCD2pFC9r0oQNJdebBXO2GEc3zV2yGZptADgeCujOr6h3WRuYW1lbmp1bWJmIG1hbmlmZXN0amV4Y2x1c2lvbnOBomVzdGFydBjCZmxlbmd0aBkeBAAAAj5qdW1iAAAAJ2p1bWRjMmNsABEAEIAAAKoAOJtxA2MycGEuY2xhaW0udjIAAAACD2Nib3KlY2FsZ2ZzaGEyNTZpc2lnbmF0dXJleE1zZWxmI2p1bWJmPS9jMnBhL3VybjpjMnBhOmU3NDQ4NjYxLWQ1MGItNGEwYS04YTc0LWVkNDM3MTA4ZGM0Mi9jMnBhLnNpZ25hdHVyZWppbnN0YW5jZUlEeCx4bXA6aWlkOjZjMGU5YjlkLTJmNzQtNDk2OS1iMzY0LWFiNDI2NTk0NGExZHJjcmVhdGVkX2Fzc2VydGlvbnODomN1cmx4LXNlbGYjanVtYmY9YzJwYS5hc3NlcnRpb25zL2MycGEuaW5ncmVkaWVudC52M2RoYXNoWCDJmiFZIkrcOWlT5EAX2HRl9YlBuBQR55kOwK8UPWr/1aJjdXJseCpzZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmFjdGlvbnMudjJkaGFzaFgg8tUOGVTI4kDHBJ3it7J5VsESs/hBAyf+r1Nn8G5R75CiY3VybHgpc2VsZiNqdW1iZj1jMnBhLmFzc2VydGlvbnMvYzJwYS5oYXNoLmRhdGFkaGFzaFggzj01KW46YnTslJsiOKdDJZfbcZbZw7eML/7fzige1ZN0Y2xhaW1fZ2VuZXJhdG9yX2luZm+jZG5hbWVvQW50aHJvcGljIEZpbGVzZ3ZlcnNpb25lMS4wLjBrc3BlY1ZlcnNpb25lMi40LjAAABA4anVtYgAAAChqdW1kYzJjcwARABCAAACqADibcQNjMnBhLnNpZ25hdHVyZQAAABAIY2JvctKEWQISogEmGCFZAgowggIGMIIBjaADAgECAhRA5aAK7sI50L64g/oGQgU9Z1UTADAKBggqhkjOPQQDAzBJMRcwFQYDVQQKEw5BbnRocm9waWMsIFBCQzEuMCwGA1UEAxMlQW50aHJvcGljIENvbnRlbnQgQ3JlZGVudGlhbHMgUm9vdCBDQTAeFw0yNjA4MDcxODQzNTZaFw0yODA4MDYxOTQzNTZaMEQxFzAVBgNVBAoTDkFudGhyb3BpYywgUEJDMSkwJwYDVQQDEyBBbnRocm9waWMgQ2xhdWRlIENvbnRlbnQgU2lnbmluZzBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABJh6CmvLUBgFFNU0vUKlOVtE6djd17L5SuwX0LemFisBM3dkd/3cyjxFA3Qo5S46fX0/ihY0VZ7mfb9KF703t5OjWDBWMA4GA1UdDwEB/wQEAwIHgDAVBgNVHSUEDjAMBgorBgEEAYPoXgIBMAwGA1UdEwEB/wQCMAAwHwYDVR0jBBgwFoAUzlHiBIFOZFsj+OPEz5o+nMHXXMIwCgYIKoZIzj0EAwMDZwAwZAIwMXMdFJ4BetLLVY7ORuE9noqbbAZOZn/aArXyTwFAZfKrPzxF2vPoJNf1+UCdg1XGAjBwX1zd9WGqYkqmL5SFqw1QySjr1zJfpJM9+1rdDwSPLMOPOjKuiXjoU/pUUeG9RwmhY3BhZFkNngAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPZYQJ/v3DKpU0cIItAEda+OXPDmCJX9iBlyZ/LPfYzJHh6HpsDvd9fZeoIODwGNWBJU/1kkxI3wRIPI2npFIX9VvHk=</c2pa:manifest></metadata>
-<rect width="680" height="430" fill="#FFFFFF"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="1000" viewBox="0 0 720 500" font-family="Arial, Helvetica, sans-serif">
+<rect width="720" height="500" fill="#FFFFFF"/>
 <style>
-.t{font-size:14px;font-weight:bold;fill:#042C53}
-.s{font-size:12px;fill:#444441}
-.rt{fill:#E1F5EE;stroke:#0F6E56;stroke-width:1}
-.rtt{font-size:14px;font-weight:bold;fill:#085041}
-.rts{font-size:12px;fill:#0F6E56}
-.gr{fill:#F1EFE8;stroke:#5F5E5A;stroke-width:1}
-.gt{font-size:14px;font-weight:bold;fill:#2C2C2A}
-.gs{font-size:12px;fill:#5F5E5A}
+.title{font-size:15px;font-weight:bold;fill:#042C53}
+.sub{font-size:11px;fill:#5F5E5A}
+.h{font-size:13px;font-weight:bold}
+.s{font-size:11px}
 .ln{stroke:#5F5E5A;stroke-width:1.5;fill:none}
 .box{fill:none;stroke:#888780;stroke-width:1;stroke-dasharray:5 4}
+.rt{fill:#E1F5EE;stroke:#0F6E56;stroke-width:1}
+.cl{fill:#F1EFE8;stroke:#5F5E5A;stroke-width:1}
+.sv{fill:#E6F1FB;stroke:#185FA5;stroke-width:1}
+.lb{font-size:11px;fill:#444441}
 </style>
-<text x="340" y="14" text-anchor="middle" class="t">Architecture réseau multi-sites virtualisée (Docker + Containerlab + FRRouting)</text>
 
-<rect class="box" x="20" y="70" width="190" height="298" rx="12"/>
-<rect class="box" x="470" y="70" width="190" height="298" rx="12"/>
-<text class="t" x="34" y="96">Site A</text>
-<text class="t" x="646" y="96" text-anchor="end">Site B</text>
+<text class="title" x="360" y="18" text-anchor="middle">Infrastructure réseau multi-sites virtualisée</text>
+<text class="sub" x="360" y="33" text-anchor="middle">Docker · Containerlab · FRRouting (eBGP) · WireGuard · nftables · dnsmasq · Nginx</text>
 
-<path d="M165 108 V48 H515 V108" fill="none" stroke="#534AB7" stroke-width="2" stroke-dasharray="6 4"/>
-<text class="s" x="340" y="38" text-anchor="middle" style="fill:#3C3489">Tunnel WireGuard 10.99.0.0/30</text>
+<!-- Conteneurs de sites -->
+<rect class="box" x="10" y="75" width="235" height="270" rx="12"/>
+<rect class="box" x="475" y="75" width="235" height="270" rx="12"/>
+<text class="h" x="24" y="95" fill="#2C2C2A">Site A</text>
+<text class="h" x="696" y="95" text-anchor="end" fill="#2C2C2A">Site B</text>
 
-<line class="ln" x1="185" y1="132" x2="290" y2="132"/>
-<line class="ln" x1="390" y1="132" x2="495" y2="132"/>
-<text class="s" x="250" y="122" text-anchor="middle">10.0.1.0/30</text>
-<text class="s" x="250" y="152" text-anchor="middle">eBGP</text>
-<text class="s" x="430" y="122" text-anchor="middle">10.0.2.0/30</text>
-<text class="s" x="430" y="152" text-anchor="middle">eBGP</text>
+<!-- Tunnel WireGuard -->
+<path d="M205 110 V62 H515 V110" fill="none" stroke="#534AB7" stroke-width="2" stroke-dasharray="6 4"/>
+<text class="s" x="360" y="54" text-anchor="middle" fill="#3C3489">Tunnel WireGuard 10.99.0.0/30 (extrémités 10.0.1.1 et 10.0.2.2)</text>
 
-<rect class="rt" x="45" y="108" width="140" height="48" rx="8"/>
-<text class="rtt" x="115" y="128" text-anchor="middle">R1 FRRouting</text>
-<text class="rts" x="115" y="146" text-anchor="middle">AS 65001, OSPF</text>
-<rect class="rt" x="290" y="108" width="100" height="48" rx="8"/>
-<text class="rtt" x="340" y="128" text-anchor="middle">R-ISP</text>
-<text class="rts" x="340" y="146" text-anchor="middle">AS 65000</text>
-<rect class="rt" x="495" y="108" width="140" height="48" rx="8"/>
-<text class="rtt" x="565" y="128" text-anchor="middle">R2 FRRouting</text>
-<text class="rts" x="565" y="146" text-anchor="middle">AS 65002, OSPF</text>
+<!-- Liens eBGP -->
+<line class="ln" x1="230" y1="146" x2="305" y2="146"/>
+<line class="ln" x1="415" y1="146" x2="490" y2="146"/>
+<text class="lb" x="267" y="138" text-anchor="middle">eBGP</text>
+<text class="lb" x="452" y="138" text-anchor="middle">eBGP</text>
 
-<line class="ln" x1="115" y1="156" x2="115" y2="190"/>
-<line class="ln" x1="565" y1="156" x2="565" y2="190"/>
+<!-- Routeurs -->
+<rect class="rt" x="25" y="110" width="205" height="72" rx="8"/>
+<text class="h" x="127" y="128" text-anchor="middle" fill="#085041">R1 · FRRouting</text>
+<text class="s" x="127" y="144" text-anchor="middle" fill="#0F6E56">AS 65001 · lo 10.255.0.1</text>
+<text class="s" x="127" y="158" text-anchor="middle" fill="#0F6E56">NAT · pare-feu nftables</text>
+<text class="s" x="127" y="172" text-anchor="middle" fill="#0F6E56">DHCP (dnsmasq)</text>
 
-<rect class="gr" x="45" y="190" width="140" height="52" rx="8"/>
-<text class="gt" x="115" y="211" text-anchor="middle">Switch, VLANs</text>
-<text class="gs" x="115" y="229" text-anchor="middle">10.1.0.0/16</text>
-<rect class="gr" x="495" y="190" width="140" height="52" rx="8"/>
-<text class="gt" x="565" y="211" text-anchor="middle">Switch, VLANs</text>
-<text class="gs" x="565" y="229" text-anchor="middle">10.2.0.0/16</text>
+<rect class="rt" x="305" y="110" width="110" height="72" rx="8"/>
+<text class="h" x="360" y="128" text-anchor="middle" fill="#085041">R-ISP</text>
+<text class="s" x="360" y="144" text-anchor="middle" fill="#0F6E56">AS 65000</text>
+<text class="s" x="360" y="158" text-anchor="middle" fill="#0F6E56">lo 10.255.0.3</text>
+<text class="s" x="360" y="172" text-anchor="middle" fill="#0F6E56">ISP simulé</text>
 
-<line class="ln" x1="68" y1="242" x2="68" y2="290"/>
-<line class="ln" x1="162" y1="242" x2="162" y2="290"/>
-<line class="ln" x1="518" y1="242" x2="518" y2="290"/>
-<line class="ln" x1="612" y1="242" x2="612" y2="290"/>
+<rect class="rt" x="490" y="110" width="205" height="72" rx="8"/>
+<text class="h" x="592" y="128" text-anchor="middle" fill="#085041">R2 · FRRouting</text>
+<text class="s" x="592" y="144" text-anchor="middle" fill="#0F6E56">AS 65002 · lo 10.255.0.2</text>
+<text class="s" x="592" y="158" text-anchor="middle" fill="#0F6E56">NAT · pare-feu nftables</text>
+<text class="s" x="592" y="172" text-anchor="middle" fill="#0F6E56">DHCP (dnsmasq)</text>
 
-<rect class="gr" x="30" y="290" width="76" height="48" rx="8"/>
-<text class="gt" x="68" y="310" text-anchor="middle">PC1</text>
-<text class="gs" x="68" y="327" text-anchor="middle">DHCP</text>
-<rect class="gr" x="124" y="290" width="76" height="48" rx="8"/>
-<text class="gt" x="162" y="310" text-anchor="middle">DNS</text>
-<text class="gs" x="162" y="327" text-anchor="middle">Bind9</text>
-<rect class="gr" x="480" y="290" width="76" height="48" rx="8"/>
-<text class="gt" x="518" y="310" text-anchor="middle">Web</text>
-<text class="gs" x="518" y="327" text-anchor="middle">Nginx</text>
-<rect class="gr" x="574" y="290" width="76" height="48" rx="8"/>
-<text class="gt" x="612" y="310" text-anchor="middle">PC2</text>
-<text class="gs" x="612" y="327" text-anchor="middle">DHCP</text>
+<text class="lb" x="360" y="212" text-anchor="middle">Les LAN des sites ne sont</text>
+<text class="lb" x="360" y="226" text-anchor="middle">jamais annoncés à l'ISP</text>
 
-<rect class="rt" x="40" y="396" width="14" height="14" rx="3"/>
-<text class="s" x="62" y="407">Routeur (conteneur)</text>
-<rect class="gr" x="210" y="396" width="14" height="14" rx="3"/>
-<text class="s" x="232" y="407">Switch / hôte</text>
-<line x1="340" y1="403" x2="370" y2="403" stroke="#534AB7" stroke-width="2" stroke-dasharray="6 4"/>
-<text class="s" x="378" y="407">VPN WireGuard</text>
-<line class="ln" x1="500" y1="403" x2="530" y2="403"/>
-<text class="s" x="538" y="407">Lien routé</text>
+<!-- Liens routeurs -> réseaux -->
+<line class="ln" x1="70" y1="182" x2="70" y2="245"/>
+<line class="ln" x1="185" y1="182" x2="185" y2="245"/>
+<line class="ln" x1="535" y1="182" x2="535" y2="245"/>
+<line class="ln" x1="650" y1="182" x2="650" y2="245"/>
+<text class="lb" x="76" y="218">eth2</text>
+<text class="lb" x="191" y="218">eth3</text>
+<text class="lb" x="541" y="218">eth2</text>
+<text class="lb" x="656" y="218">eth3</text>
+
+<!-- Site A : clients et serveurs -->
+<rect class="cl" x="20" y="245" width="100" height="80" rx="8"/>
+<text class="h" x="70" y="263" text-anchor="middle" fill="#2C2C2A">Clients</text>
+<text class="s" x="70" y="279" text-anchor="middle" fill="#5F5E5A">10.1.10.0/24</text>
+<text class="s" x="70" y="295" text-anchor="middle" fill="#5F5E5A">PC1 (DHCP)</text>
+<text class="s" x="70" y="311" text-anchor="middle" fill="#5F5E5A">.100 à .199</text>
+
+<rect class="sv" x="135" y="245" width="100" height="80" rx="8"/>
+<text class="h" x="185" y="263" text-anchor="middle" fill="#0C447C">Serveurs</text>
+<text class="s" x="185" y="279" text-anchor="middle" fill="#185FA5">10.1.20.0/24</text>
+<text class="s" x="185" y="295" text-anchor="middle" fill="#185FA5">DNS dnsmasq</text>
+<text class="s" x="185" y="311" text-anchor="middle" fill="#185FA5">10.1.20.10</text>
+
+<!-- Site B : clients et serveurs -->
+<rect class="cl" x="485" y="245" width="100" height="80" rx="8"/>
+<text class="h" x="535" y="263" text-anchor="middle" fill="#2C2C2A">Clients</text>
+<text class="s" x="535" y="279" text-anchor="middle" fill="#5F5E5A">10.2.10.0/24</text>
+<text class="s" x="535" y="295" text-anchor="middle" fill="#5F5E5A">PC2 (DHCP)</text>
+<text class="s" x="535" y="311" text-anchor="middle" fill="#5F5E5A">.100 à .199</text>
+
+<rect class="sv" x="600" y="245" width="100" height="80" rx="8"/>
+<text class="h" x="650" y="263" text-anchor="middle" fill="#0C447C">Serveurs</text>
+<text class="s" x="650" y="279" text-anchor="middle" fill="#185FA5">10.2.20.0/24</text>
+<text class="s" x="650" y="295" text-anchor="middle" fill="#185FA5">Web Nginx</text>
+<text class="s" x="650" y="311" text-anchor="middle" fill="#185FA5">10.2.20.10</text>
+
+<!-- Légende et adressage -->
+<rect class="rt" x="20" y="365" width="14" height="14" rx="3"/>
+<text class="lb" x="40" y="376">Routeur (conteneur)</text>
+<rect class="cl" x="170" y="365" width="14" height="14" rx="3"/>
+<text class="lb" x="190" y="376">Clients</text>
+<rect class="sv" x="250" y="365" width="14" height="14" rx="3"/>
+<text class="lb" x="270" y="376">Serveurs</text>
+<line x1="350" y1="372" x2="380" y2="372" stroke="#534AB7" stroke-width="2" stroke-dasharray="6 4"/>
+<text class="lb" x="388" y="376">VPN WireGuard</text>
+<line x1="500" y1="372" x2="530" y2="372" class="ln"/>
+<text class="lb" x="538" y="376">Lien routé</text>
+
+<text class="lb" x="20" y="405">Liens : R1 - ISP 10.0.1.0/30 (R1 .1, ISP .2) · ISP - R2 10.0.2.0/30 (ISP .1, R2 .2) · tunnel 10.99.0.0/30 (R1 .1, R2 .2)</text>
+<text class="lb" x="20" y="423">Sécurité : nftables en refus par défaut sur R1 et R2 · NAT en sortie eth1 uniquement, sans traduction entre sites</text>
+<text class="lb" x="20" y="441">Services : DHCP sur chaque routeur (DNS annoncé : 10.1.20.10) · web.projet.local résolu en 10.2.20.10</text>
+<text class="lb" x="20" y="459">Routage : eBGP R1/R2 avec l'ISP (seuls les /30 de liaison sont annoncés) · routes inter-sites 10.x.0.0/16 via wg0</text>
 </svg>
