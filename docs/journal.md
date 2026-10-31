@@ -66,3 +66,13 @@
   se joignent à travers l'ISP, configure le tunnel, puis attend le handshake.
 - Le test du compteur du pare-feu était trop faible (du bruit réseau le
   faisait passer) : il compare désormais le compteur avant et après l'accès bloqué.
+
+## Scénarios de panne (labo 03, jour 3)
+- Scénario 1 : coupure de eth1 de R1. La session BGP R1-ISP tombe, PC1 perd
+  l'accès au site B mais garde ses services locaux (DNS du site A). Le site B
+  n'est pas affecté. Après remise du lien, BGP se rétablit puis WireGuard refait
+  son handshake dès qu'il y a du trafic.
+- Scénario 2 : coupure de wg0. PC1 n'atteint plus le web du site B : aucun repli
+  en clair par l'ISP, car les LAN ne sont pas annoncés en BGP et la seule route
+  vers l'autre site passe par le tunnel. Le BGP avec l'ISP n'est pas affecté.
+- Le script test-panne.sh mesure les temps de détection et de rétablissement.
