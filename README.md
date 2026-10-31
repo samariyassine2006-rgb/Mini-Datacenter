@@ -16,11 +16,11 @@ services d'infrastructure, sécurité et interconnexion chiffrée des sites.
 
 ## Objectifs
 
-- Routage dynamique : OSPF à l'intérieur de chaque site, eBGP entre les sites et l'ISP
-- Segmentation en VLANs (VLAN 10 : clients, VLAN 20 : serveurs)
+- Routage dynamique : eBGP entre les sites et l'ISP (OSPF étudié dans le labo 01)
+- Segmentation clients / serveurs (réseaux `10.x.10.0/24` et `10.x.20.0/24`, interfaces distinctes)
 - NAT en sortie vers l'ISP
 - VPN site-à-site WireGuard entre R1 et R2
-- Services : DNS (Bind9), DHCP, serveur web (Nginx)
+- Services : DNS et DHCP (dnsmasq), serveur web (Nginx)
 - Filtrage : pare-feu nftables sur les routeurs
 - Tests de fonctionnement et de résilience (pannes, convergence)
 
@@ -32,8 +32,8 @@ et le journal de bord dans `docs/journal.md`.
 
 | Élément | Rôle |
 |---|---|
-| Site A (AS 65001) | Routeur R1 (FRRouting), switch VLANs `10.1.0.0/16`, PC1 (client DHCP), serveur DNS Bind9 |
-| Site B (AS 65002) | Routeur R2 (FRRouting), switch VLANs `10.2.0.0/16`, PC2 (client DHCP), serveur web Nginx |
+| Site A (AS 65001) | Routeur R1 (FRRouting), réseaux `10.1.10.0/24` (clients) et `10.1.20.0/24` (serveurs), PC1 (client DHCP), serveur DNS dnsmasq |
+| Site B (AS 65002) | Routeur R2 (FRRouting), réseaux `10.2.10.0/24` (clients) et `10.2.20.0/24` (serveurs), PC2 (client DHCP), serveur web Nginx |
 | ISP (AS 65000) | Routeur R-ISP, eBGP avec R1 et R2 |
 
 ### Liens
@@ -42,7 +42,7 @@ et le journal de bord dans `docs/journal.md`.
 |---|---|---|
 | R1 ↔ R-ISP | `10.0.1.0/30` | eBGP |
 | R-ISP ↔ R2 | `10.0.2.0/30` | eBGP |
-| R1 ↔ R2 (tunnel WireGuard) | `10.99.0.0/30` | Route statique ou OSPF sur `wg0` |
+| R1 ↔ R2 (tunnel WireGuard) | `10.99.0.0/30` | Routes statiques via `wg0` |
 
 ### Principe de fonctionnement
 
@@ -56,14 +56,14 @@ et le journal de bord dans `docs/journal.md`.
 
 - Containerlab, Docker
 - FRRouting (OSPF, BGP)
-- Bind9, serveur DHCP [isc-dhcp-server ou dnsmasq], Nginx
+- dnsmasq (DHCP et DNS), Nginx
 - nftables
 - WireGuard
 
 ## Structure du dépôt
 
 ```
-reseau-virtualise/
+Reseau-entreprise-virtualise/
 ├── labs/         # labos progressifs (01-ospf, ...) : topologie .clab.yml + configs
 ├── configs/      # configurations de la topologie finale (r1, r2, isp)
 ├── scripts/      # déploiement et tests automatisés
@@ -76,20 +76,20 @@ reseau-virtualise/
 - Linux (natif, VM ou WSL2)
 - Docker
 - Containerlab
-- Outils de diagnostic : tcpdump, traceroute [wireshark]
+- Outils de diagnostic : tcpdump, traceroute
 
 ## Déploiement
 
 ```bash
 # Cloner le dépôt
-git clone [URL_DU_DEPOT]
-cd reseau-virtualise
+git clone https://github.com/samariyassine2006-rgb/Reseau-entreprise-virtualise.git
+cd Reseau-entreprise-virtualise
 
-# Déployer la topologie
-sudo containerlab deploy -t labs/01-ospf/topologie.clab.yml
+# Déployer la topologie finale (images, topologie, tunnel WireGuard)
+./scripts/deploy-final.sh
 
 # Détruire la topologie
-sudo containerlab destroy -t labs/01-ospf/topologie.clab.yml
+cd labs/03-final && sudo containerlab destroy -t topologie.clab.yml
 ```
 
 ## Tests
@@ -97,29 +97,32 @@ sudo containerlab destroy -t labs/01-ospf/topologie.clab.yml
 ```bash
 ./scripts/test-ospf.sh   # labo 01 ; un script par labo
 ./scripts/test-bgp.sh   # labo 02 : eBGP
+./scripts/test-final.sh   # labo 03 : réseau de bout en bout
+./scripts/test-services.sh   # labo 03 : DHCP, DNS, NAT, pare-feu
+./scripts/test-panne.sh   # labo 03 : scénarios de panne
 ```
 
-Scénarios prévus :
+Scénarios couverts :
 
 - Connectivité PC1 ↔ PC2 à travers le tunnel (traceroute : le trafic ne doit pas passer par R-ISP)
-- Attribution DHCP et résolution DNS (Bind9, site A)
+- Attribution DHCP et résolution DNS (dnsmasq, site A)
 - Accès au serveur web Nginx (site B) depuis le site A
 - Règles de pare-feu nftables (flux autorisés et bloqués)
 - Coupure du lien R1 ↔ R-ISP ou du tunnel, et mesure du temps de convergence
 
-Les résultats détaillés sont consignés dans `docs/rapport.pdf`.
+Les sorties des tests sont consignées dans `docs/resultats-tests.txt`, le journal de bord dans `docs/journal.md`.
 
 ## Avancement
 
 - [x] Schéma d'architecture (v1)
 - [x] Plan d'adressage
 - [x] Topologie Containerlab de base (labo 01 : 2 routeurs, 2 PC)
-- [~] OSPF (labo 01 fonctionnel ; reste à l'intégrer à la topologie finale)
+- [x] OSPF (labo 01 ; non utilisé dans la topologie finale, un seul routeur par site)
 - [x] eBGP avec l'ISP
-- [ ] VLANs, DHCP, DNS, serveur web
-- [ ] NAT et pare-feu nftables
-- [ ] Tunnel WireGuard
-- [ ] Tests et rapport
+- [x] Segmentation clients/serveurs, DHCP, DNS, serveur web
+- [x] NAT et pare-feu nftables
+- [x] Tunnel WireGuard
+- [x] Tests et rapport
 
 ## Livrables
 
