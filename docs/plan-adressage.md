@@ -122,3 +122,14 @@ Routeur R2, interface `eth2` en trunk 802.1Q vers le switch.
 - `show ip ospf neighbor` selon la topologie retenue.
 - `wg show` : handshake récent entre R1 et R2.
 - `dig web.[domaine]` depuis PC2 : réponse `10.2.20.10`.
+
+## Annexe : écarts entre le plan initial et la réalisation
+
+- Segmentation : les sous-interfaces 802.1Q (`eth2.10`, `eth2.20`) sont remplacées par
+  deux interfaces distinctes, `eth2` (clients, `10.x.10.0/24`) et `eth3` (serveurs,
+  `10.x.20.0/24`). Les adresses du plan sont conservées.
+- OSPF : étudié dans le labo 01 (lien de test `10.0.12.0/30`) ; non utilisé dans la
+  topologie finale, où chaque site n'a qu'un routeur.
+- DNS et DHCP : dnsmasq à la place de Bind9. Le DHCP est porté par chaque routeur
+  comme prévu, le DNS par le serveur du site A (`10.1.20.10`).
+- Routes inter-sites : routes statiques via `wg0`.
