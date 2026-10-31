@@ -1,0 +1,114 @@
+# Résultats des tests (2026-10-31)
+== Attente des sessions BGP (max 120 s) ==
+== Attente du bail DHCP de PC2 (max 60 s) ==
+PC2 : 10.2.10.178
+== Tests ==
+[OK]    BGP : 2 sessions établies sur R-ISP
+[OK]    Underlay : R1 joint R2 à travers l ISP (10.0.1.1 -> 10.0.2.2)
+[OK]    Tunnel : R1 joint R2 en 10.99.0.2
+[OK]    WireGuard : handshake effectué
+[OK]    Site A -> site B : PC1 joint PC2
+[OK]    Site A -> site B : PC1 joint le serveur web
+[OK]    HTTP : PC1 récupère la page Nginx du site B
+[OK]    Chemin : le trafic passe par le tunnel (10.99.0.2)
+[OK]    Chemin : le trafic ne passe pas par l ISP
+
+== Détail du tunnel ==
+interface: wg0
+  public key: z/coP3cOkJ9aEtnfVKzrMXKwgVUkckbm/t3psb3TTic=
+  private key: (hidden)
+  listening port: 51820
+
+peer: gv5S0PyaemqAiPjE277l936qKdem0+p0mUdX70KzNz0=
+  endpoint: 10.0.2.2:51820
+  allowed ips: 10.99.0.2/32, 10.2.0.0/16
+  latest handshake: 7 seconds ago
+  transfer: 7.86 KiB received, 4.90 KiB sent
+
+== Chemin PC1 -> web (le pare-feu bloque la fin du traceroute : normal) ==
+traceroute to 10.2.20.10 (10.2.20.10), 4 hops max, 46 byte packets
+ 1  10.1.10.1  0.022 ms
+ 2  10.99.0.2  2.250 ms
+ 3  *
+ 4  *
+
+Résultat : 9 OK, 0 échec(s)
+== Attente des baux DHCP (max 60 s) ==
+== DHCP ==
+[OK]    PC1 reçoit une adresse du pool 10.1.10.100-199
+[OK]    PC1 sort par la passerelle 10.1.10.1 (route vers le web)
+[OK]    PC2 reçoit une adresse du pool 10.2.10.100-199
+[OK]    PC2 sort par la passerelle 10.2.10.1 (route vers le DNS)
+== DNS ==
+[OK]    PC1 résout web.projet.local (site A)
+[OK]    PC2 résout web.projet.local à travers le tunnel (site B)
+[OK]    PC1 atteint le web par son nom (DNS fourni par DHCP)
+== NAT ==
+[OK]    NAT : PC1 joint l ISP (10.0.2.1) grâce au masquerade
+[OK]    NAT : le compteur masquerade de R1 a augmenté
+[OK]    Pas de NAT entre sites : le web voit l IP réelle de PC1
+== Pare-feu ==
+[OK]    R1 : politique d entrée par défaut = refus
+[OK]    R2 : politique de transit par défaut = refus
+[OK]    R2 : un accès au port 179 via le tunnel est bloqué (drops 12 -> 14)
+[OK]    Isolation : le serveur web ne peut pas initier vers le site A
+[OK]    BGP toujours établi malgré le pare-feu
+
+== Règles actives sur R1 ==
+table inet filter {
+	chain input {
+		type filter hook input priority filter; policy drop;
+		ct state established,related accept
+		ct state invalid drop
+		iifname "lo" accept
+		iifname "eth1" ip saddr 10.0.1.2 tcp dport 179 accept
+		iifname "eth1" ip saddr 10.0.2.2 udp dport 51820 accept
+		iifname "eth1" ip saddr 10.0.2.2 icmp type echo-request accept
+		iifname "wg0" icmp type echo-request accept
+		iifname { "eth2", "eth3" } icmp type echo-request accept
+		iifname "eth2" udp dport 67 accept
+		counter packets 12 bytes 864 drop
+	}
+
+	chain forward {
+		type filter hook forward priority filter; policy drop;
+		ct state established,related accept
+		ct state invalid drop
+		iifname "eth2" accept
+		iifname "wg0" oifname "eth3" udp dport 53 accept
+		iifname "wg0" oifname "eth3" tcp dport 53 accept
+		iifname "wg0" icmp type echo-request accept
+		counter packets 0 bytes 0 drop
+	}
+}
+table ip nat {
+	chain postrouting {
+		type nat hook postrouting priority srcnat; policy accept;
+		ip daddr { 10.1.0.0-10.2.255.255 } return
+		oifname "eth1" counter packets 9 bytes 964 masquerade
+	}
+}
+
+Résultat : 15 OK, 0 échec(s)
+=== État nominal ===
+[OK]    BGP : 2 sessions établies
+[OK]    PC1 atteint le serveur web du site B
+[OK]    Les LAN des sites ne sont jamais visibles de l ISP
+
+=== Scénario 1 : coupure du lien R1 <-> ISP (eth1 de R1) ===
+[OK]    BGP : la session R1-ISP tombe en 0 s
+[OK]    Panne : PC1 n atteint plus le web du site B
+[OK]    Panne : les services locaux restent disponibles (DNS du site A)
+[OK]    Panne : le site B reste intact (PC2 atteint son web local)
+--- Rétablissement du lien
+[OK]    BGP : sessions rétablies en 0 s
+[OK]    Sous-couche : R1 rejoint R2 à travers l ISP
+[OK]    Service complet rétabli (tunnel + web) 3 s après la remise du lien
+
+=== Scénario 2 : coupure du tunnel WireGuard (wg0 de R1) ===
+[OK]    Tunnel coupé : PC1 n atteint pas le web (aucun repli en clair par l ISP)
+[OK]    Tunnel coupé : le BGP avec l ISP n est pas affecté
+--- Rétablissement du tunnel
+[OK]    Tunnel rétabli : PC1 atteint de nouveau le web (1 s)
+
+Résultat : 13 OK, 0 échec(s)
