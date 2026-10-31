@@ -143,3 +143,15 @@ du PC1 au serveur Nginx du site B et que le trafic emprunte bien le tunnel.
 
 DHCP et DNS (dnsmasq), NAT en sortie sans traduction entre sites, pare-feu
 nftables à politique de refus par défaut sur R1 et R2.
+
+## Scénarios de panne
+
+    ./scripts/test-panne.sh
+
+Deux scénarios : coupure du lien R1 vers l'ISP (la session BGP tombe, le site A
+perd l'accès au site B mais garde ses services locaux, puis rétablissement) et
+coupure du tunnel WireGuard (aucun repli en clair par l'ISP).
+
+## Démonstration
+
+Le déroulé de la démonstration est décrit dans `docs/demo.md`.
