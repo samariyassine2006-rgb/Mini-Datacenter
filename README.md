@@ -155,3 +155,13 @@ coupure du tunnel WireGuard (aucun repli en clair par l'ISP).
 ## Démonstration
 
 Le déroulé de la démonstration est décrit dans `docs/demo.md`.
+
+## Limites et pistes d'amélioration
+
+- Les réseaux clients et serveurs sont portés par des interfaces distinctes
+  (eth2 et eth3) : les VLAN 802.1Q du plan initial ne sont pas implémentés.
+- OSPF est étudié dans le labo 01 mais n'est pas utilisé dans la topologie finale,
+  où chaque site n'a qu'un routeur.
+- Un seul serveur DNS (site A) : pas de redondance.
+- Pas de haute disponibilité des routeurs (VRRP/Keepalived) ni de second tunnel.
+- Les clés WireGuard sont générées à chaque déploiement : aucun secret dans le dépôt.
